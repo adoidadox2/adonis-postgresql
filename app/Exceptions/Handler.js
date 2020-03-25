@@ -24,6 +24,9 @@ class ExceptionHandler extends BaseExceptionHandler {
     if (error.name === "ValidationException") {
       return response.status(error.status).send(error.messages);
     }
+    if (error.name === "ModelNotFoundException") {
+      return response.status(error.status).send("Model not found");
+    }
   }
 
   /**
